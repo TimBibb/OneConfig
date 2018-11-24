@@ -17,6 +17,10 @@ namespace OneConfig
             testData.Add(new List<string> { "bind e", "+forward" });
         }
 
+        /// <summary>
+        /// Setter for mainGames for the top games to pull from.
+        /// </summary>
+        /// <param name="games">List of most used games in order</param>
         public void SetMainGames(List<int> games){
             for (int i = 0; i < games.Count; i++){
                 mainGames.Add(games[i]);
@@ -27,25 +31,33 @@ namespace OneConfig
             return mainGames;
         }
 
-        //On submit of main games
+        ///On submit of main games
+        ///Gets the configuration of each game and uses "parser" to
+        ///parse each file and uses "AppendConfig" to add the parsed
+        ///data to the "SaveData.txt" file
         private void GetConfig(List<int> games){
             for (int i = 1; i < games.Count; i++){
                 switch (games[i-1])
                 {
                     case 1:
                         //Insert parseBO4
+                        //AppendConfig(parser.BO4());
                         break;
                     case 2:
                         //Insert parseBF1
+                        //AppendConfig(parser.BF1());
                         break;
                     case 3:
                         //Insert parseBFV
+                        //AppendConfig(parser.parseBO4());
                         break;
                     case 4:
                         //Insert parseOverwatch
+                        //AppendConfig(parser.parseBO4());
                         break;
                     case 5:
                         //Insert parseCSGO...
+                        //AppendConfig(parser.parseBO4());
                         break;
                     default:
                         break;
@@ -53,9 +65,13 @@ namespace OneConfig
             }
         }
 
+        ///Adds the parsed data from "GetConfig" to the "SavaData.txt" file.
+        ///Gives a cohesive look at the saved data from all games.
+        ///Will be used in the future to make a fully fledged data file for all binds and settings.
         private void AppendConfig(List<List<string>>parsedData){
             using (StreamWriter w = File.AppendText("SaveData.txt"))
             {
+                w.Write("\r");
                 for (int i = 0; i < parsedData.Count; i++){
                     for (int j = 0; j < parsedData[i].Count; j++){
                         if(j + 1 < parsedData[i].Count){
