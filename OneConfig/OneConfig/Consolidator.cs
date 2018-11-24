@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace OneConfig
 {
+    //TODO: make parser for each game
     public class Consolidator
     {
         static List<int> mainGames = new List<int>();
