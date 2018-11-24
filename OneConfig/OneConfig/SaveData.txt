@@ -1,4 +1,5 @@
-﻿mouse sens .25
+//THIS DATA IS USELESS
+mouse sens .25
 fov 90
 divs 432
 bind e +forward
