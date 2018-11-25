@@ -26,11 +26,20 @@ namespace OneConfig
             for (int i = 0; i < games.Count; i++){
                 mainGames.Add(games[i]);
             }
-            AppendConfig(testData);
+			GetConfig(mainGames);
         }
         public List<int> GetMainGames(){
             return mainGames;
         }
+
+		/// <summary>
+		/// Find the games on their system
+		/// </summary>
+		/// <returns>the paths to the config files </returns>
+		string FindGames(List<int> games)
+		{
+			return "";
+		}
 
         ///On submit of main games
         ///Gets the configuration of each game and uses "parser" to
@@ -42,7 +51,7 @@ namespace OneConfig
                 {
                     case 1:
                         //Insert parseBO4
-                        //AppendConfig(parser.BO4());
+                        AppendConfig(Parser.BO4("C:\\Program Files (x86)\\Call of Duty Black Ops 4\\players\\config.ini"));
                         break;
                     case 2:
                         //Insert parseBF1
